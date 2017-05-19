@@ -1,7 +1,7 @@
 {
-  "name": "vue-starter",
+  "name": "module-playlists",
   "version": "1.0.0",
-  "description": "A Vue.js project",
+  "description": "Moduled playlists for Rekordbox",
   "author": "Jonas Winzen <2ndjpeg@gmail.com>",
   "private": true,
   "scripts": {

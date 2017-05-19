@@ -1,6 +1,6 @@
-# vue-starter
+# ModulePlaylists
 
-> A Vue.js project
+> Moduled playlists for Rekordbox
 
 ## Build Setup
 
