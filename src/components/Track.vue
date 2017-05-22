@@ -1,6 +1,6 @@
 <template>
   <div class="playlist-entry">
-    <div class="shadow-container" @click="sendMessage()">
+    <div class="shadow-container">
       <div class="dragzone">:::</div>
       <div class="title">{{ trackInfo.title || "Unknown Title" }}</div>
       <div class="artist">{{ trackInfo.artist || "Unknown Artist" }}</div>
@@ -9,34 +9,31 @@
 </template>
 
 <script>
-  import injector from "../javascript/injector";
+  import Playlist from "./Playlist";
   export default {
+    components: {
+      Playlist
+    },
     name: 'TrackEntry',
     props: ["trackInfo"],
     data () {
       return {};
     },
     methods: {
-      sendMessage: injector.inject(["BusService"], (BusService) => {
-        return function () {
-          BusService.$emit("playlistitem:clicked", this.trackInfo);
-        };
-      })
     }
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="scss" scoped>
+<style lang="scss">
   .playlist-entry {
-    padding: 15px;
     display: flex;
     justify-content: center;
     .shadow-container {
-      box-shadow: 3px 3px 30px 3px black;
+      box-shadow: 3px 3px 10px 0px black;
       border: black solid 1px;
       background-color: lightgray;
-      width: 70%;
+      width: 100%;
       display: flex;
       justify-content: space-between;
       .dragzone {

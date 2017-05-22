@@ -1,14 +1,17 @@
 <template>
-  <div class="hello">
-    <h1>{{ msg }}</h1>
-  </div>
+  <playlist :info="playlist"></playlist>
 </template>
 
 <script>
+  import Playlist from "./Playlist";
   export default {
+    components: {Playlist},
     name: 'hello',
     data () {
       return {
+        playlist: {
+          uuid: "playlist1"
+        },
         msg: 'Welcome to Your Vue.'
       }
     }

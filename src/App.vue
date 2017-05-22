@@ -6,10 +6,9 @@
 </template>
 
 <script>
-  import Vue from "vue";
-  import injector from "./javascript/injector";
-  injector.register("BusService", new Vue());
+  import Playlist from "./components/Playlist";
   export default {
+    components: {Playlist},
     name: 'app'
   }
 </script>
