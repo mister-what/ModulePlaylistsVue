@@ -76,11 +76,11 @@ export default new Vuex.Store({
   },
   mutations: {
     updatePlaylist(state, change) {
-      console.log(change);
+      //console.log(change);
       state.playlists[change.id].playlist = change.value;
     },
     updatePlaylistName(state, change) {
-      console.log(change);
+      //console.log(change);
       state.playlists[change.id].name = change.value;
     }
   }

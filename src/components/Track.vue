@@ -19,6 +19,30 @@
     data () {
       return {};
     },
+    computed: {
+      playlist: {
+        get() {
+          return this.$store.getters.getPlaylist(this.id);
+        },
+        set(value) {
+          this.$store.commit('updatePlaylist', {
+            id: this.id,
+            value: value
+          });
+        }
+      },
+      name: {
+        get() {
+          return this.$store.getters.getPlaylistName(this.id);
+        },
+        set(value) {
+          this.$store.commit('updatePlaylistName', {
+            id: this.id,
+            value: value
+          });
+        }
+      }
+    },
     methods: {
     }
   }

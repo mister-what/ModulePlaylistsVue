@@ -4,10 +4,10 @@
       <span>{{name}}</span>
       <div class="dragzone" v-if="sublist === 'true'">:::</div>
     </div>
-    <draggable class="dragable" v-model="playlist">
+    <draggable :options="draggableOpts" class="dragable" v-model="playlist">
       <transition-group name="track-entry-list">
         <div v-for="item in playlist" :key="item.uuid">
-          <track-entry v-if="item.type === 'track'" class="track" :track-info="item"></track-entry>
+          <track-entry v-if="item.type === 'track'" class="track" :track-info="item" :id="info.id"></track-entry>
           <playlist class="sub-playlist" v-else :info="item" sublist="true"></playlist>
         </div>
       </transition-group>
@@ -52,7 +52,18 @@
     },
     data () {
       return {
+        draggableOpts: {
+          handle: ".dragzone",
+          animation: 100
+        }
       };
+    },
+    methods: {
+      drag(event) {
+        console.log(event);
+        event.stopPropagation();
+        event.preventDefault();
+      }
     }
   }
 </script>
@@ -75,7 +86,7 @@
         padding: 3px;
       }
       .track-entry-list-move {
-        transition: transform 0.1s;
+        transition: transform 0.0s;
       }
     }
     .sub-playlist {
