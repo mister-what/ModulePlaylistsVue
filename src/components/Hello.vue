@@ -10,7 +10,7 @@
     data () {
       return {
         playlist: {
-          uuid: "playlist1"
+          id: "playlist1"
         },
         msg: 'Welcome to Your Vue.'
       }

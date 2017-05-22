@@ -55,20 +55,33 @@ export default new Vuex.Store({
           },
           {
             type: "playlist",
-            uuid: "playlist2"
+            id: "playlist2",
+            uuid: uuid.v4()
           }
         ]
       }
     }
   },
+  getters: {
+    getPlaylist(state) {
+      return function (id) {
+        return (state.playlists[id] || {playlist: []}).playlist;
+      };
+    },
+    getPlaylistName(state) {
+      return function (id) {
+        return (state.playlists[id] || {name: "Unknown Playlist"}).name;
+      };
+    }
+  },
   mutations: {
     updatePlaylist(state, change) {
       console.log(change);
-      state.playlists[change.uuid].playlist = change.value;
+      state.playlists[change.id].playlist = change.value;
     },
     updatePlaylistName(state, change) {
       console.log(change);
-      state.playlists[change.uuid].name = change.value;
+      state.playlists[change.id].name = change.value;
     }
   }
 });

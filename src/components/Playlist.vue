@@ -29,22 +29,22 @@
     computed: {
       playlist: {
         get() {
-          return this.$store.state.playlists[this.info.uuid].playlist;
+          return this.$store.getters.getPlaylist(this.info.id);
         },
         set(value) {
           this.$store.commit('updatePlaylist', {
-            uuid: this.info.uuid,
+            id: this.info.id,
             value: value
           });
         }
       },
       name: {
         get() {
-          return this.$store.state.playlists[this.info.uuid].name;
+          return this.$store.getters.getPlaylistName(this.info.id);
         },
         set(value) {
           this.$store.commit('updatePlaylistName', {
-            uuid: this.info.uuid,
+            id: this.info.id,
             value: value
           });
         }
